@@ -1,0 +1,15 @@
+.idea
+.DS_Store
+.temp
+.history
+.vscode/
+node_modules
+
+out
+libs
+dist
+yarn-error.log
+yarn.lock
+package-lock.json
+coverage
+build
