@@ -32,7 +32,7 @@ function generateIndexJs(_libName) {
     const exportStr = [];
     // 读取并加工ts文件
     fs.readdirSync(srcPath)
-      .filter((file) => !["index.ts"].includes(file))
+      .filter((file) => !["index.ts"].includes(file) && !file.includes('.test.'))
       .map((file) => file.split(".")[0])
       .forEach((file) => {
         console.log({ file });
