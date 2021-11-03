@@ -3,7 +3,7 @@ const path = require("path");
 const shell = require("shelljs");
 const fse = require("fs-extra");
 
-const methodsName = ["g_index", "publish"];
+const methodsName = ["g_index", "publish", "readme"];
 
 //工具库名称： node\common\electron\web
 const libName = process.argv[2];
@@ -28,6 +28,9 @@ switch (methodName) {
     break;
   case "publish":
     publish(libName);
+    break;
+  case "readme":
+    updateReadme(libName);
     break;
 }
 
@@ -104,9 +107,43 @@ function publish(_libName) {
 
   // shell.exec(`pwd`)
   // console.log(process.cwd())
-  shell.exec(`npm publish --access=public --registry=https://registry.npmjs.org/`)
+  shell.exec(
+    `npm publish --access=public --registry=https://registry.npmjs.org/`
+  );
   shell.exec(`git add .`);
-  shell.exec(`git commit -m 'feat(${_libName}): release v${pkg.version}'`)
+  shell.exec(`git commit -m 'feat(${_libName}): release v${pkg.version}'`);
+}
+
+// 更新readme里的功能清单
+function updateReadme(_libName) {
+  log(`开始更新readme...`);
+  const indexDTsPath = path.join(libsBase, _libName, "libs/index.d.ts");
+  let indexDTs = fs.readFileSync(indexDTsPath).toLocaleString();//读取d.ts
+
+  indexDTs = indexDTs.split('declare const _default: {')[1];
+  indexDTs = indexDTs.split('};')[0];
+
+  indexDTs = indexDTs.split(/\r?\n/);// 切分换行
+
+  // indexDTs = indexDTs.map(d => d.replace(/\s/g, ''))
+  indexDTs = indexDTs.join("\n\n");// 换行
+  // log(indexDTs)
+
+  const readmePath = path.join(libsBase, _libName, "README.md");
+  let readme = fs.readFileSync(readmePath).toLocaleString();
+  // 新的readme内容
+  readme = readme.split("## 功能清单")[0];
+  readme =
+    readme +
+    `## 功能清单
+
+  \`\`\`ts
+  ${indexDTs}
+
+  \`\`\`
+  `;
+  log(readme);
+  fs.writeFileSync(readmePath, readme);
 }
 
 function log(...msg) {
