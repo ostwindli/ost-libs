@@ -10,7 +10,15 @@ $ yarn add @ostwindli/common
 
 ## 功能清单
 
-```js
-const { isWin, isMac, isLinux } = require("@ostwindli/common");
-isLinux();
-```
+  ```ts
+
+      isWin: () => boolean;
+
+    getNpmInfo(pkgName: string, timeout?: number): Promise<any>;
+
+    getReadmeContent(pkgName: string, timeout?: number): Promise<any>;
+
+    getPublicNetworkIp(): Promise<string>;
+
+  ```
+  
