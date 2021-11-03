@@ -10,7 +10,18 @@ $ yarn add @ostwindli/web
 
 ## 功能清单
 
-```js
-const { isWin, isMac, isLinux } = require("@ostwindli/web");
-isLinux();
-```
+  ```ts
+  
+
+    ls(name: any, value: any, expires: any): any;
+
+    scrollToTop: () => void;
+
+    getPublicNetworkIp(): Promise<string>;
+
+    contextmenuBan: () => void;
+
+
+
+  ```
+  
