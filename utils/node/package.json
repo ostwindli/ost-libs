@@ -1,6 +1,6 @@
 {
     "name": "@ostwindli/node",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "js tools for node.js",
     "main": "libs/index.js",
     "scripts": {

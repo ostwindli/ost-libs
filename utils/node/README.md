@@ -19,11 +19,7 @@ isLinux();
 
   ```ts
 
-  import * as file from "./file";
-
-declare const _default: {
-
-    getPortsPids: (ports: number | number[]) => Promise<any>;
+      getPortsPids: (ports: number | number[]) => Promise<any>;
 
     killPorts: (ports: number | number[]) => Promise<any>;
 
