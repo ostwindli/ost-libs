@@ -5,7 +5,7 @@
   "main": "libs/index.js",
   "scripts": {
     "dev": "tsc -w",
-    "generate-indexts": "node ../_scripts/generateIndexTs.js common",
+    "generate-indexts": "node ../_scripts/helper.js common",
     "build": "rimraf libs && npm run generate-indexts && tsc",
     "test": "jest --runInBand --detectOpenHandles --passWithNoTests",
     "postpublish": "open https://www.npmjs.com/package/@ostwindli/common"

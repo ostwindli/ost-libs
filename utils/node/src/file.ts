@@ -26,8 +26,18 @@ import * as fs from "fs";
     }
   );
  */
+
 let tmpFileList = [];
-export function getAllMatchedFiles(dirPath, filterFun, callback) {
+export interface MatchedFiles {
+  fileName: string;
+  file: string;
+  size: number;
+}
+export function getAllMatchedFiles(
+  dirPath: string,
+  filterFun: null | ((_file: string, stats: fs.Stats) => boolean),
+  callback: (res: MatchedFiles[]) => void
+): void {
   if (!dirPath || !fs.existsSync(dirPath)) {
     throw `提示：路径${dirPath}不存在`;
   }
@@ -92,7 +102,7 @@ export function getAllMatchedFiles(dirPath, filterFun, callback) {
   });
 }
 
-test();
+// test();
 function test() {
   const filePath =
     "/Users/cqli/Documents/workspaces/Tencent/abcmouse-bak/assets/resources";

@@ -1,0 +1,23 @@
+{
+  "name": "asenal",
+  "version": "1.0.0",
+  "description": "ostwindli的武器库",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ostwindli/asenal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ostwindli/asenal/issues"
+  },
+  "homepage": "https://github.com/ostwindli/asenal#readme",
+  "dependencies": {
+    "fs-extra": "^10.0.0",
+    "shelljs": "^0.8.4"
+  }
+}

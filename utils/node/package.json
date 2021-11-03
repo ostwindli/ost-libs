@@ -1,13 +1,14 @@
 {
     "name": "@ostwindli/node",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "js tools for node.js",
     "main": "libs/index.js",
     "scripts": {
         "dev": "tsc -w",
-        "generate-indexts": "node ../_scripts/helper.js node g_index",
-        "pub": "npm run build && node ../_scripts/helper.js node publish",
-        "build": "rimraf libs && npm run generate-indexts && tsc",
+        "pub": "npm run build && npm run update_readme && node ../_scripts/helper.js node publish",
+        "build": "rimraf libs && npm run g_index && tsc",
+        "update_readme": "node ../_scripts/helper.js node readme",
+        "g_index": "node ../_scripts/helper.js node g_index",
         "test": "jest --runInBand --detectOpenHandles --passWithNoTests",
         "postpublish": "open https://www.npmjs.com/package/@ostwindli/node"
     },

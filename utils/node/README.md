@@ -8,9 +8,36 @@ a lot of js tools for nodejs
 $ yarn add @ostwindli/node
 ```
 
-## 功能清单
+## 使用方法
 
 ```js
 const { isWin, isMac, isLinux } = require("@ostwindli/node");
 isLinux();
 ```
+
+## 功能清单
+
+  ```ts
+
+  import * as file from "./file";
+
+declare const _default: {
+
+    getPortsPids: (ports: number | number[]) => Promise<any>;
+
+    killPorts: (ports: number | number[]) => Promise<any>;
+
+    getPort: (port?: number, must?: boolean) => Promise<unknown>;
+
+    getIpV4: () => string;
+
+    getIpV6: () => string;
+
+    getPublicNetworkIp: () => Promise<string>;
+
+    getGitUserInfo: () => Promise<string>;
+
+    getAllMatchedFiles(dirPath: string, filterFun: (_file: string, stats: import("fs").Stats) => boolean, callback: (res: file.MatchedFiles[]) => void): void;
+
+  ```
+  
