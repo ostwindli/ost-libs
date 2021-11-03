@@ -8,6 +8,13 @@ a lot of js tools for browser
 $ yarn add @ostwindli/web
 ```
 
+## 使用方法
+
+```js
+const { scrollToTop } = require("@ostwindli/web");
+scrollToTop();
+```
+
 ## 功能清单
 
   ```ts
