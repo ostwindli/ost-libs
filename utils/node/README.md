@@ -18,8 +18,9 @@ isLinux();
 ## 功能清单
 
   ```ts
+  
 
-      getPortsPids: (ports: number | number[]) => Promise<any>;
+    getPortsPids: (ports: number | number[]) => Promise<any>;
 
     killPorts: (ports: number | number[]) => Promise<any>;
 
@@ -34,6 +35,8 @@ isLinux();
     getGitUserInfo: () => Promise<string>;
 
     getAllMatchedFiles(dirPath: string, filterFun: (_file: string, stats: import("fs").Stats) => boolean, callback: (res: file.MatchedFiles[]) => void): void;
+
+
 
   ```
   
