@@ -3,7 +3,6 @@
     "version": "0.0.2",
     "description": "js tools for web",
     "main": "libs/index.js",
-    "private": "false",
     "scripts": {
         "dev": "tsc -w",
         "pub": "npm run build && npm run update_readme && node ../_scripts/helper.js web publish",
