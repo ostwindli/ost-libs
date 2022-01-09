@@ -1,0 +1,14 @@
+{
+    "name": "@licq/date",
+    "version": "1.0.0",
+    "description": "封装一些日期的操作方法",
+    "main": "index.js",
+    "scripts": {
+        "test": "node index.test.js",
+        "docs": "node ../../scripts/jsdocs.js date",
+        "pub": "node ../../scripts/publish.js date"
+    },
+    "author": "ostwindli<9837438@qq.com>",
+    "license": "MIT",
+    "devDependencies": {}
+}
