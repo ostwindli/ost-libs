@@ -1,12 +1,12 @@
 {
     "name": "@licq/string",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "封装一些字符串的操作方法",
     "main": "index.js",
     "scripts": {
         "test": "node index.test.js",
         "docs": "node ../../scripts/jsdocs.js string",
-        "pub": "node scripts/publish.js string"
+        "pub": "node ../../scripts/publish.js string"
     },
     "author": "ostwindli<9837438@qq.com>",
     "license": "MIT",
