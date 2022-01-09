@@ -20,7 +20,7 @@ npm i --save-dev @licq/date
 
 | Param | Type | Description |
 | --- | --- | --- |
-| format | <code>String</code> | 格式 defult: 'yyyy-MM-dd hh:mm:ss' |
+| format | <code>String</code> | 格式 default: 'yyyy-MM-dd hh:mm:ss' |
 | date | <code>Date</code> | 日期 default: new Date() |
 
 **Example**  

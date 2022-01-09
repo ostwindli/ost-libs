@@ -2,7 +2,7 @@
 /**
  * 格式化日期
  * @name formatTime
- * @param {String} format 格式 defult: 'yyyy-MM-dd hh:mm:ss'
+ * @param {String} format 格式 default: 'yyyy-MM-dd hh:mm:ss'
  * @param {Date} date 日期 default: new Date()
  * @since v1.0.0
  * @returns String
