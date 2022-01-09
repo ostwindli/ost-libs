@@ -7,13 +7,18 @@ const path = require("path");
 const fs = require("fs");
 const fse = require("fs-extra");
 const jsdoc2md = require("jsdoc-to-markdown");
-const { getPkgsBasePath, getCurrPkgs } = require("./utils.js");
+const {
+  getPkgsBasePath,
+  getCurrPkgs,
+  isPkgExist,
+  getInputPkgName,
+} = require("./utils.js");
 
-const packageName = process.argv[2];
+const packageName = getInputPkgName();
 
 const packages = getCurrPkgs();
 
-if (!packageName || !packages.includes(packageName)) {
+if (!isPkgExist(packageName)) {
   console.log(
     `\n包名${packageName}不存在, 请传入以下包名中的一个进行文档生成\n`
   );
@@ -32,7 +37,7 @@ jsdoc2md
 
     fs.writeFileSync(getPkgsBasePath(packageName, "README.md"), content);
 
-    console.log('\n生成成功\n')
+    console.log("\n生成成功\n");
   });
 
 function jsdocsPerf(content) {

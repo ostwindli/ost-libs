@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node index.test.js",
-    "gen-docs": "node ../../scripts/jsdocs.js {{PKG_NAME}}"
+    "docs": "node ../../scripts/jsdocs.js {{PKG_NAME}}",
+    "pub": "node scripts/publish.js {{PKG_NAME}}"
   },
   "author": "ostwindli<9837438@qq.com>",
   "license": "MIT",

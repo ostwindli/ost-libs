@@ -23,8 +23,23 @@ function getPkgsBasePath(packageName, file) {
     `${file ? file : ""}`
   );
 }
+// 判断包名是否存在
+function isPkgExist(pkgName) {
+  const packageName = pkgName || getInputPkgName();
+
+  const packages = getCurrPkgs();
+
+  return packageName && packages.includes(packageName);
+}
+
+// 获取传进来的包名
+function getInputPkgName() {
+  return process.argv[2];
+}
 
 module.exports = {
   getPkgsBasePath,
   getCurrPkgs,
+  isPkgExist,
+  getInputPkgName,
 };

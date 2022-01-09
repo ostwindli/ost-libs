@@ -7,7 +7,7 @@ ostwindli 的武器库
 ### 初始化一个新包
 
 ```js
-npm run init-pkgs
+npm run new
 ```
 
 ### 生成 API 文档
@@ -16,7 +16,7 @@ npm run init-pkgs
 
 ```sh
 #eg: npm run gen-docs string
-npm run gen-docs PKG_NAME
+npm run docs PKG_NAME
 
 ```
 
@@ -24,7 +24,7 @@ npm run gen-docs PKG_NAME
 
 ```sh
 cd packages/PKG_NAME
-npm run gen-docs
+npm run docs
 ```
 
 ### 测试
@@ -32,4 +32,19 @@ npm run gen-docs
 ```sh
 cd packages/PKG_NAME
 npm run test
+```
+
+### 发布
+
+```sh
+#eg: npm run gen-docs string
+npm run pub PKG_NAME
+
+```
+
+或者
+
+```sh
+cd packages/PKG_NAME
+npm run pub
 ```

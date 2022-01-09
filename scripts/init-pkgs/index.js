@@ -6,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 const fse = require("fs-extra");
 const inquirer = require("inquirer");
-const { getPkgsBasePath, getCurrPkgs } = require("../utils.js");
+const { getPkgsBasePath, isPkgExist } = require("../utils.js");
 
 inquirer
   .prompt([
@@ -15,10 +15,9 @@ inquirer
       name: "name",
       message: "输入包名称",
       validate(value) {
-        const pkgs = getCurrPkgs();
         value = value ? value.trim() : "";
         if (!value) return "必填";
-        if (pkgs.includes(value)) return `包名${value}已存在`;
+        if (isPkgExist(value)) return `包名${value}已存在`;
         return true;
       },
     },
@@ -36,12 +35,6 @@ inquirer
     // 复制模板
     fse.copySync(path.join(__dirname, "./template"), getPkgsBasePath(name));
 
-    // 复制readme 后续readme模板用来生成代码文档用
-    // fse.copySync(
-    //   getPkgsBasePath(name, "README-template.md"),
-    //   getPkgsBasePath(name, "README.md")
-    // );
-
     // 读取所有目标文件
     const files = fs.readdirSync(getPkgsBasePath(name));
 
@@ -55,7 +48,7 @@ inquirer
 
       fs.writeFileSync(filePath, fileContent);
     });
-    console.log('\n生成成功\n')
+    console.log("\n生成成功\n");
   })
   .catch((error) => {
     console.log(error);

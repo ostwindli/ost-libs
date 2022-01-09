@@ -4,8 +4,9 @@
   "description": "ostwindli的武器库",
   "main": "index.js",
   "scripts": {
-    "init-pkgs": "node scripts/init-pkgs/index.js",
-    "gen-docs": "node scripts/jsdocs.js"
+    "new": "node scripts/init-pkgs/index.js",
+    "docs": "node scripts/jsdocs.js",
+    "pub": "node scripts/publish.js"
   },
   "repository": {
     "type": "git",
