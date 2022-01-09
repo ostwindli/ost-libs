@@ -4,7 +4,8 @@
   "description": "ostwindli的武器库",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "init-pkgs": "node scripts/init-pkgs/index.js",
+    "gen-docs": "node scripts/jsdocs.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,11 @@
   },
   "homepage": "https://github.com/ostwindli/asenal#readme",
   "dependencies": {
-    "fs-extra": "^10.0.0",
     "shelljs": "^0.8.4"
+  },
+  "devDependencies": {
+    "fs-extra": "^10.0.0",
+    "inquirer": "^8.2.0",
+    "jsdoc-to-markdown": "^7.1.0"
   }
 }

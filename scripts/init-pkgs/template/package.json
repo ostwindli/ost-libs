@@ -1,0 +1,13 @@
+{
+  "name": "@licq/{{PKG_NAME}}",
+  "version": "1.0.0",
+  "description": "{{PKG_DES}}",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.test.js",
+    "gen-docs": "node ../../scripts/jsdocs.js {{PKG_NAME}}"
+  },
+  "author": "ostwindli<9837438@qq.com>",
+  "license": "MIT",
+  "devDependencies": {}
+}
