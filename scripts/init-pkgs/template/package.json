@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "{{PKG_DES}}",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ostwindli/asenal.git"
+  },
   "scripts": {
     "test": "node index.test.js",
     "docs": "node ../../scripts/jsdocs.js {{PKG_NAME}}",
-    "pub": "node scripts/publish.js {{PKG_NAME}}"
+    "pub": "node ../../scripts/publish.js {{PKG_NAME}}"
   },
   "author": "ostwindli<9837438@qq.com>",
   "license": "MIT",

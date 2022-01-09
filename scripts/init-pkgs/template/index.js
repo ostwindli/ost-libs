@@ -5,7 +5,7 @@
  * @returns String
  * @example
  * const res = helloWorld(1)
- * console.log(res === 2)
+ * //==> eg: 2
  */
 function helloWorld(value) {
   return value + 1;

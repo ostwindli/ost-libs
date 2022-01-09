@@ -40,6 +40,7 @@ jsdoc2md
     console.log("\n生成成功\n");
   });
 
+//http://tool.chinaz.com/tools/unicode.aspx
 function jsdocsPerf(content) {
   content = content.includes("</dl>") ? content.split("</dl>\n")[1] : content;
   return content

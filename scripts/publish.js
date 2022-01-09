@@ -12,19 +12,19 @@ const {
   getInputPkgName,
 } = require("./utils.js");
 
+const pkgName = getInputPkgName();
+
 if (!isPkgExist()) {
-  console.log(
-    `\n包名${getInputPkgName()}不存在, 请传入以下包名中的一个进行文档生成\n`
-  );
+  console.log(`\n包名${pkgName}不存在, 请传入以下包名中的一个进行文档生成\n`);
   console.log(getCurrPkgs());
   process.exit(-1);
 }
 
 console.log(`\n开始发布...`);
 
-const pkgPath = getPkgsBasePath(getInputPkgName(), "package.json");
+const pkgJSONPath = getPkgsBasePath(pkgName, "package.json");
 
-let pkg = fse.readJSONSync(pkgPath);
+let pkg = fse.readJSONSync(pkgJSONPath);
 
 console.log(`\n旧版本：`, pkg.version);
 pkg.version =
@@ -35,11 +35,16 @@ pkg.version =
     .join(".");
 console.log(`\n新版本：`, pkg.version);
 
-fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 4));
+fs.writeFileSync(pkgJSONPath, JSON.stringify(pkg, null, 4));
 
-return;
 cp.execSync(
-  `npm publish --access=public --registry=https://registry.npmjs.org/`
+  `cd ${getPkgsBasePath(pkgName)}
+  npm run docs
+  npm run test
+  npm publish --access=public --registry=https://registry.npmjs.org/
+  git add .
+  git commit -m 'release(@licq/${pkgName}): 发布 v${pkg.version}'
+  `
 );
-cp.execSync(`git add .`);
-cp.execSync(`git commit -m 'feat(${_libName}): release v${pkg.version}'`);
+
+console.log("\n发布成功：", `https://www.npmjs.com/package/@licq/${pkgName}\n`);

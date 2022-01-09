@@ -15,7 +15,7 @@ npm run new
 执行下面命令，自动生成 readme
 
 ```sh
-#eg: npm run gen-docs string
+#eg: npm run docs string
 npm run docs PKG_NAME
 
 ```
@@ -37,7 +37,6 @@ npm run test
 ### 发布
 
 ```sh
-#eg: npm run gen-docs string
 npm run pub PKG_NAME
 
 ```
