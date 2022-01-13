@@ -12,6 +12,8 @@ npm i --save-dev @licq/git
 ## API
 ### getGitUserInfo 
 
+获取当前仓库的Git用户信息
+
 
 **Returns**: Object  
 **Since**: v1.0.0  

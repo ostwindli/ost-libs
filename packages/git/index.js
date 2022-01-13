@@ -1,6 +1,7 @@
 const { execSync } = require("child_process");
 
 /**
+ * 获取当前仓库的Git用户信息
  * @name getGitUserInfo
  * @since v1.0.0
  * @returns Object
