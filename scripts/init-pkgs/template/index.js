@@ -4,7 +4,8 @@
  * @since v1.0.0
  * @returns String
  * @example
- * const res = helloWorld(1)
+ * const {{PKG_NAME}} = require('@licq/{{PKG_NAME}}')
+ * const res = {{PKG_NAME}}.helloWorld(1)
  * //==> eg: 2
  */
 function helloWorld(value) {

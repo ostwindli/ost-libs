@@ -1,6 +1,6 @@
-const util = require("./index.js");
+const {{PKG_NAME}} = require("./index.js");
 
 (async function () {
-  const res = util.helloWorld(1);
-  console.log("\nhelloWorld测试结果", res === 2);
+  const res = {{PKG_NAME}}.helloWorld(1);
+  console.log("\nhelloWorld测试结果", res);
 })();
