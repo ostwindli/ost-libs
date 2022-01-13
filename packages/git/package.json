@@ -1,0 +1,18 @@
+{
+    "name": "@licq/git",
+    "version": "1.0.0",
+    "description": "封装一些操作git信息的方法",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ostwindli/asenal.git"
+    },
+    "scripts": {
+        "test": "node index.test.js",
+        "docs": "node ../../scripts/jsdocs.js git",
+        "pub": "node ../../scripts/publish.js git"
+    },
+    "author": "ostwindli<9837438@qq.com>",
+    "license": "MIT",
+    "devDependencies": {}
+}
