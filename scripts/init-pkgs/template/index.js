@@ -1,4 +1,5 @@
 /**
+ * 这是一个示例Demo
  * @name helloWorld
  * @param {Number} value 这是一个示例属性
  * @since v1.0.0
