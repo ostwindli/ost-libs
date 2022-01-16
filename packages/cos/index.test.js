@@ -4,5 +4,5 @@ const config = require('./.cos-config.js');
 
 (async function () {
   const cos = new Cos(config.gtimg)
-  const res = cos.uploadFiles(path.join(__dirname, 'testfiles'), 'ost/cos/demo5');
+  const res = await cos.uploadFiles(path.join(__dirname, 'testfiles'), 'ost/cos/demo5');
 })();
