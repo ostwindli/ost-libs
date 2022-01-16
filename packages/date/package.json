@@ -1,8 +1,14 @@
 {
     "name": "@licq/date",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "封装一些日期的操作方法",
     "main": "index.js",
+    "keywords": [
+        "nodejs",
+        "ostwindli",
+        "ostwind",
+        "date"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ostwindli/asenal.git"
