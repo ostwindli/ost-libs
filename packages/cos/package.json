@@ -1,0 +1,27 @@
+{
+    "name": "@licq/cos",
+    "version": "1.0.0",
+    "description": "封装腾讯cos上传相关的方法",
+    "main": "index.js",
+    "keywords": [
+        "nodejs",
+        "ostwindli",
+        "ostwind",
+        "cos"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ostwindli/asenal.git"
+    },
+    "scripts": {
+        "test": "node index.test.js",
+        "docs": "node ../../scripts/jsdocs.js cos",
+        "pub": "node ../../scripts/publish.js cos"
+    },
+    "author": "ostwindli<9837438@qq.com>",
+    "license": "MIT",
+    "dependencies": {
+        "@licq/file": "^1.0.2",
+        "cos-nodejs-sdk-v5": "^2.11.6"
+    }
+}
