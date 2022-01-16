@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "{{PKG_DES}}",
   "main": "index.js",
+  "keywords": [
+    "nodejs",
+    "ostwindli",
+    "ostwind",
+    "{{PKG_NAME}}"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ostwindli/asenal.git"
