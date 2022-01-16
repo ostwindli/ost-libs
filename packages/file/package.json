@@ -1,8 +1,14 @@
 {
     "name": "@licq/file",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "封装关于文件操作相关的方法",
     "main": "index.js",
+    "keywords": [
+        "nodejs",
+        "ostwindli",
+        "ostwind",
+        "file"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ostwindli/asenal.git"
