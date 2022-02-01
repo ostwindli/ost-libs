@@ -1,6 +1,6 @@
 {
     "name": "@licq/date",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "封装一些日期的操作方法",
     "main": "index.js",
     "keywords": [
