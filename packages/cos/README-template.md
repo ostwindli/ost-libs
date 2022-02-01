@@ -1,6 +1,7 @@
 # @licq/cos
 
 封装腾讯 cos 上传相关的方法
+
 [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
 [npm-image]: http://img.shields.io/npm/v/@licq/cos.svg?style=flat-square
