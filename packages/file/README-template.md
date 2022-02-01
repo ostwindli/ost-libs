@@ -2,6 +2,7 @@
 # @licq/file
 
 封装关于文件操作相关的方法
+
 [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
 [npm-image]: http://img.shields.io/npm/v/@licq/file.svg?style=flat-square
