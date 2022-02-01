@@ -7,10 +7,11 @@
  * @since v1.0.0
  * @returns String
  * @example
- * const res = formatTime()
+ * const date = require('@licq/date')
+ * const res = date.formatTime()
  * //==> eg: 2022-01-09 17:58:02
  * 
- * const res = formatTime('yyyy-MM-dd')
+ * const res = date.formatTime('yyyy-MM-dd')
  * //==> eg: 2022-01-09
  */
 function formatTime(format = "yyyy-MM-dd hh:mm:ss", date = new Date()) {
