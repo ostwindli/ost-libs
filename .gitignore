@@ -13,3 +13,7 @@ yarn.lock
 package-lock.json
 coverage
 build
+.temp
+.cache
+
+config.json

@@ -1,18 +1,18 @@
-# asenal
+# Asenal
 
-ostwindli 的武器库
+Ostwindli's JavaScript Tools
 
-## 本地开发
+## Local Dev
 
-### 初始化一个新包
+### Init a new package
 
 ```js
 npm run new
 ```
 
-### 生成 API 文档
+### Generate API Docs
 
-执行下面命令，自动生成 readme
+exec below shell
 
 ```sh
 #eg: npm run docs string
@@ -20,30 +20,38 @@ npm run docs PKG_NAME
 
 ```
 
-或者
+or
 
 ```sh
 cd packages/PKG_NAME
 npm run docs
 ```
 
-### 测试
+### Test
 
 ```sh
 cd packages/PKG_NAME
 npm run test
 ```
 
-### 发布
+### Publish
 
 ```sh
 npm run pub PKG_NAME
 
 ```
 
-或者
+or
 
 ```sh
 cd packages/PKG_NAME
 npm run pub
 ```
+
+### Deploy Docs
+
+```sh
+npm run docs:sync
+```
+
+[https://asenal.lcq.show](https://asenal.lcq.show)
