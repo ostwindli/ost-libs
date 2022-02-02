@@ -1,6 +1,6 @@
 {
     "name": "@licq/git",
-    "version": "1.0.3",
+    "version": "2.0.0",
     "description": "封装一些操作git信息的方法",
     "main": "index.js",
     "keywords": [
