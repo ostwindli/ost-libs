@@ -1,6 +1,6 @@
 # @licq/cos
 
-封装腾讯 cos 上传相关的方法
+基于腾讯 cos nodesdk, 封装批量上传方法，特点是简单，并发效率高
 
 [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
@@ -23,24 +23,35 @@ npm i --save-dev @licq/cos
 
 
 **Returns**: instanceof COS  
-**Since**: v1.0.0  
+**Since**: v2.0.0  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | Config | <code>Object</code> | 对象存储参数 参考：<https://cloud.tencent.com/document/product/436/8629#.E9.85.8D.E7.BD.AE.E9.A1.B9> |
 | Config.SecretId | <code>String</code> | 必填 |
 | Config.SecretKey | <code>String</code> | 必填 |
-| Config.Bucket | <code>String</code> | 必填 |
-| Config.Region | <code>String</code> | 必填 |
-| Config.ACL | <code>String</code> | 可选 默认：'public-read' |
-| Config._Domain | <code>String</code> | 可选 上传后的域名 默认：https://{Bucket}.cos.{Region}.myqcloud.com |
+| Config.CosObjectConfig | <code>Object</code> | 参见 https://cloud.tencent.com/document/product/436/64980#.E7.AE.80.E5.8D.95.E4.B8.8A.E4.BC.A0.E5.AF.B9.E8.B1.A1 中的参数说明 |
+| Config.CosObjectConfig.Bucket | <code>String</code> | 必填 |
+| Config.CosObjectConfig.Region | <code>String</code> | 必填 |
+| Config.CosObjectConfig.ACL | <code>String</code> | 可选 默认：'public-read' |
+| Config.ExtConfig | <code>Object</code> | 可选 本工具自定义参数 |
+| Config.ExtConfig.Domain | <code>String</code> | 可选 上传后的域名 默认：https://{Bucket}.cos.{Region}.myqcloud.com |
 
 **Example**  
 ```js
 const Cos = require('@licq/cos');
-const cos = new Cos(Config);
-const res = await cos.uploadFiles(__dirname, 'ost/cos/demo');
-// => https://test-web-1251388888.cos.ap-guangzhou.myqcloud.com/ost/cos/demo/demo1.jpeg
-// => https://test-web-1251388888.cos.ap-guangzhou.myqcloud.com/ost/cos/demo/demo2.jpeg
+const cos = new Cos({
+   SecretId: "SECRET_ID",
+   SecretKey: "SECRET_KEY",
+   CosObjectConfig: {
+      Bucket: "test-12345678",
+      Region: "ap-guangzhou",
+      ACL: 'default'
+   },
+   ExtConfig: {
+      Domain: 'https://demos.gtimg.cn/',
+   }
+});
+await cos.uploadFiles(__dirname, 'ost/cos/demo');
 ```
 

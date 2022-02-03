@@ -1,6 +1,6 @@
 {
     "name": "@licq/cos",
-    "version": "1.0.2",
+    "version": "2.0.0",
     "description": "封装腾讯cos上传相关的方法",
     "main": "index.js",
     "keywords": [
@@ -18,10 +18,14 @@
         "docs": "node ../../scripts/jsdocs.js cos",
         "pub": "node ../../scripts/publish.js cos"
     },
+    "engines": {
+        "node": ">=12"
+    },
     "author": "ostwindli<9837438@qq.com>",
     "license": "MIT",
     "dependencies": {
         "@licq/file": "^1.0.2",
-        "cos-nodejs-sdk-v5": "^2.11.6"
+        "cos-nodejs-sdk-v5": "^2.11.6",
+        "lodash": "^4.17.21"
     }
 }

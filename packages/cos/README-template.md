@@ -1,6 +1,6 @@
 # @licq/cos
 
-封装腾讯 cos 上传相关的方法
+基于腾讯 cos nodesdk, 封装批量上传方法，特点是简单，并发效率高
 
 [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
