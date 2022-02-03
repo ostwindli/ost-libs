@@ -1,40 +1,41 @@
 {
-  "name": "@licq/cos",
-  "version": "2.0.0",
-  "description": "封装腾讯cos上传相关的方法",
-  "main": "index.cjs.js",
-  "keywords": [
-    "nodejs",
-    "ostwindli",
-    "ostwind",
-    "cos"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ostwindli/asenal.git"
-  },
-  "scripts": {
-    "test": "node index.test.js",
-    "docs": "node ../../scripts/jsdocs.js cos",
-    "pub": "npm run build && node ../../scripts/publish.js cos",
-    "build": "rollup -c",
-    "dev": "rollup -c -w"
-  },
-  "engines": {
-    "node": ">=10"
-  },
-  "author": "ostwindli<9837438@qq.com>",
-  "license": "MIT",
-  "dependencies": {
-    "@licq/file": "^1.0.2",
-    "cos-nodejs-sdk-v5": "^2.11.6",
-    "lodash": "^4.17.21"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.16.12",
-    "@babel/preset-env": "^7.16.11",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^21.0.1",
-    "rollup": "^2.67.0"
-  }
+    "name": "@licq/cos",
+    "version": "2.0.1",
+    "description": "封装腾讯cos上传相关的方法",
+    "main": "index.cjs.js",
+    "keywords": [
+        "nodejs",
+        "ostwindli",
+        "ostwind",
+        "cos"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ostwindli/asenal.git"
+    },
+    "scripts": {
+        "test": "node index.test.js",
+        "docs": "node ../../scripts/jsdocs.js cos",
+        "prepublishOnly": "npm run build",
+        "pub": "node ../../scripts/publish.js cos",
+        "build": "rollup -c",
+        "dev": "rollup -c -w"
+    },
+    "engines": {
+        "node": ">=10"
+    },
+    "author": "ostwindli<9837438@qq.com>",
+    "license": "MIT",
+    "dependencies": {
+        "@licq/file": "^1.0.2",
+        "cos-nodejs-sdk-v5": "^2.11.6",
+        "lodash": "^4.17.21"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.16.12",
+        "@babel/preset-env": "^7.16.11",
+        "@rollup/plugin-babel": "^5.3.0",
+        "@rollup/plugin-commonjs": "^21.0.1",
+        "rollup": "^2.67.0"
+    }
 }
