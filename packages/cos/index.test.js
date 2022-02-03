@@ -1,6 +1,7 @@
 const path = require("path");
 const _ = require("lodash");
-const Cos = require("./index.js");
+const Cos = require("./index.cjs.js");
+//const Cos = require("./index.js");
 const config = require("./.cos-config.js");
 
 (async function () {
