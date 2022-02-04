@@ -1,5 +1,6 @@
+const fs = require("fs");
 const COS = require("cos-nodejs-sdk-v5");
-const file = require("@licq/file");
+const fileUtils = require("@licq/file");
 const _ = require("lodash");
 const path = require("path");
 
@@ -67,7 +68,7 @@ class Cos {
   };
 
   //获取对外的url前缀
-  //形式：https://{Bucket}.cos.{Region}.myqcloud.com
+  //默认：https://{Bucket}.cos.{Region}.myqcloud.com
   getHost = (cosPath) => {
     let {
       ExtConfig: { Domain },
@@ -93,72 +94,100 @@ class Cos {
     }
   }
 
-  uploadFiles(localPath, cosPath) {
-    if (!localPath || !cosPath) {
-      throw new Error(`need localPath 、cosPath`);
+  // 组装cos对象数组
+  async assemblyFiles(localPath, cosPath) {
+    if (!fs.existsSync(localPath)) {
+      throw new Error(`文件或目录不存在：${localPath}`);
     }
 
-    const defaultParams = this.defaultParams;
+    if (fs.statSync(localPath).isFile()) {
+      // 支持单个文件上传
+      const Key = path.join(cosPath, path.basename(localPath));
+      let files = this.assemblyFile(Key, localPath);
+      return [files];
+    } else {
+      let files = await fileUtils.listFiles(localPath);
+
+      // 组装files的cos数组
+      files = files
+        .filter((file) => !file.isDir)
+        .map((file) => {
+          const filename = path
+            .relative(localPath, file.path)
+            .replace(/\\/g, "/");
+          return this.assemblyFile(path.join(cosPath, filename), file.path);
+        });
+      return files;
+    }
+  }
+
+  assemblyFile(Key, FilePath) {
+    return {
+      ...this.defaultParams.CosObjectConfig,
+      Key,
+      FilePath,
+    };
+  }
+
+  /**
+   *
+   * @param {String} localPath 本地文件/目录的绝对路径
+   * @param {String} cosPath   cos的path
+   * @returns
+   */
+  async uploadFiles(localPath, cosPath) {
+    if (!localPath || !cosPath) {
+      throw new Error(`缺少参数 localPath 或 cosPath`);
+    }
     const getHost = this.getHost;
 
+    const startTime = Date.now();
+
+    const files = await this.assemblyFiles(localPath, cosPath);
+
     return new Promise((resolve, reject) => {
-      file.listFiles(localPath).then((list) => {
-        const files = list
-          .filter((file) => !file.isDir)
-          .map(function (file) {
-            const filename = path
-              .relative(localPath, file.path)
-              .replace(/\\/g, "/");
-
-            const CosObjectConfig = {
-              ...defaultParams.CosObjectConfig,
-              Key: path.join(cosPath, filename),
-              FilePath: file.path,
-            };
-
-            return CosObjectConfig;
-          });
-
-        // const filesCount = files.length;
-        // console.log(`\n本次上传共${filesCount}个文件\n`);
-
-        this.cos.uploadFiles(
-          {
-            files,
-            SliceSize: 1024 * 1024,
-            onProgress: function (info) {},
-            onFileFinish: function (err, data, options) {
-              const file = getHost(options.Key);
-              if (err) {
-                console.log(`${file} 上传失败`);
-                console.log(`error msg： ${err.message}\n`);
-              } else {
-                console.log(`${file} 上传成功`);
-              }
-            },
-          },
-          //data.files {options, error, data}
-          function (err, data) {
+      this.cos.uploadFiles(
+        {
+          files,
+          SliceSize: 1024 * 1024,
+          onProgress: function (info) {},
+          onFileFinish: function (err, data, options) {
+            const file = getHost(options.Key);
             if (err) {
-              console.log("\n-----上传失败------\n");
-              console.log(err);
-              reject();
+              console.log(`${file} 上传失败`);
+              console.log(`error msg： ${err.message}\n`);
             } else {
-              console.log("\n-----上传结束------\n");
-              let errNum = 0;
-              for (let file of data.files) {
-                if (file.error) errNum += 1;
-              }
-              console.log(`\n本次上传共${data.files.length}个文件\n`);
-              console.log(`成功：${data.files.length - errNum}`);
-              console.log(`失败：${errNum}`);
-              console.log("\n-------------------\n");
-              resolve();
+              console.log(`${file} 上传成功`);
             }
+          },
+        },
+        //data.files {options, error, data}
+        function (err, data) {
+          if (err) {
+            console.log("\n-----上传失败------\n");
+            console.log(err);
+            reject();
+          } else {
+            console.log("\n-----上传结束------\n");
+            const totalTime = ((Date.now() - startTime) / (1000)).toFixed(2);
+            let errNum = 0;
+            for (let file of data.files) {
+              if (file.error) errNum += 1;
+            }
+            console.log(`\n本次上传共${data.files.length}个文件\n`);
+            console.log(`成功：${data.files.length - errNum}`);
+            console.log(`失败：${errNum}`);
+            console.log(`用时：${totalTime} s`);
+            console.log("\n-------------------\n");
+            resolve();
           }
-        );
-      });
+        }
+      );
     });
+
+    // return new Promise((resolve, reject) => {
+
+    // });
   }
 }
 
