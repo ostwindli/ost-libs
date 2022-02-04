@@ -11,7 +11,7 @@ const path = require("path");
  * @param {String} Config.SecretId 必填
  * @param {String} Config.SecretKey 必填
  *
- * @param {Object} Config.CosObjectConfig 参见 https://cloud.tencent.com/document/product/436/64980#.E7.AE.80.E5.8D.95.E4.B8.8A.E4.BC.A0.E5.AF.B9.E8.B1.A1 中的参数说明
+ * @param {Object} Config.CosObjectConfig 参见 <https://cloud.tencent.com/document/product/436/64980#.E7.AE.80.E5.8D.95.E4.B8.8A.E4.BC.A0.E5.AF.B9.E8.B1.A1> 中的参数说明
  * @param {String} Config.CosObjectConfig.Bucket 必填
  * @param {String} Config.CosObjectConfig.Region 必填
  * @param {String} Config.CosObjectConfig.ACL 可选 默认：'public-read'
