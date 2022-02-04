@@ -80,6 +80,8 @@ const path = require("path");
  *       Domain: 'https://demos.gtimg.cn/',
  *    }
  * });
+ * //localPath 本地文件/目录的绝对路径
+ * //cosPath   cos的path
  * await cos.uploadFiles(__dirname, 'ost/cos/demo');
  */
 
@@ -172,13 +174,8 @@ class Cos {
       Key,
       FilePath
     });
-  }
-  /**
-   *
-   * @param {String} localPath 本地文件/目录的绝对路径
-   * @param {String} cosPath   cos的path
-   * @returns
-   */
+  } //localPath 本地文件/目录的绝对路径
+  //cosPath   cos的path
 
 
   async uploadFiles(localPath, cosPath) {
