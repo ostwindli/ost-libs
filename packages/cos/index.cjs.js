@@ -54,12 +54,12 @@ const path = require("path");
  * @param {Object} Config 对象存储参数 参考：<https://cloud.tencent.com/document/product/436/8629#.E9.85.8D.E7.BD.AE.E9.A1.B9>
  * @param {String} Config.SecretId 必填
  * @param {String} Config.SecretKey 必填
- * 
+ *
  * @param {Object} Config.CosObjectConfig 参见 https://cloud.tencent.com/document/product/436/64980#.E7.AE.80.E5.8D.95.E4.B8.8A.E4.BC.A0.E5.AF.B9.E8.B1.A1 中的参数说明
  * @param {String} Config.CosObjectConfig.Bucket 必填
  * @param {String} Config.CosObjectConfig.Region 必填
  * @param {String} Config.CosObjectConfig.ACL 可选 默认：'public-read'
- * 
+ *
  * @param {Object} Config.ExtConfig 可选 本工具自定义参数
  * @param {String} Config.ExtConfig.Domain 可选 上传后的域名 默认：https://{Bucket}.cos.{Region}.myqcloud.com
  * @since v2.0.0
@@ -119,7 +119,7 @@ class Cos {
           Region
         }
       } = this.defaultParams;
-      return (Domain || `https://${Bucket}.cos.${Region}.myqcloud.com/`) + cosPath;
+      return ((Domain || `https://${Bucket}.cos.${Region}.myqcloud.com/`) + cosPath).replace(/(?<!:)(\/+)/g, "/"); // 替换https://xxx.xxx//xx///xx.js -> https://xxx.xxx/xx/xx.js
     });
 
     this.checkParams(params);
