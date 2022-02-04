@@ -34,6 +34,8 @@ const path = require("path");
  *       Domain: 'https://demos.gtimg.cn/',
  *    }
  * });
+ * //localPath 本地文件/目录的绝对路径
+ * //cosPath   cos的path
  * await cos.uploadFiles(__dirname, 'ost/cos/demo');
  */
 class Cos {
@@ -129,12 +131,8 @@ class Cos {
     };
   }
 
-  /**
-   *
-   * @param {String} localPath 本地文件/目录的绝对路径
-   * @param {String} cosPath   cos的path
-   * @returns
-   */
+  //localPath 本地文件/目录的绝对路径
+  //cosPath   cos的path
   async uploadFiles(localPath, cosPath) {
     if (!localPath || !cosPath) {
       throw new Error(`缺少参数 localPath 或 cosPath`);
@@ -169,7 +167,7 @@ class Cos {
             reject();
           } else {
             console.log("\n-----上传结束------\n");
-            const totalTime = ((Date.now() - startTime) / (1000)).toFixed(2);
+            const totalTime = ((Date.now() - startTime) / 1000).toFixed(2);
             let errNum = 0;
             for (let file of data.files) {
               if (file.error) errNum += 1;

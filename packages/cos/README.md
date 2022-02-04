@@ -52,6 +52,8 @@ const cos = new Cos({
       Domain: 'https://demos.gtimg.cn/',
    }
 });
+//localPath 本地文件/目录的绝对路径
+//cosPath   cos的path
 await cos.uploadFiles(__dirname, 'ost/cos/demo');
 ```
 
