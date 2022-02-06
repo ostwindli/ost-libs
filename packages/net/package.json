@@ -1,28 +1,28 @@
 {
-  "name": "@licq/net",
-  "version": "1.0.0",
-  "description": "封装一些关于网络的方法",
-  "main": "index.js",
-  "keywords": [
-    "nodejs",
-    "ostwindli",
-    "ostwind",
-    "net"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ostwindli/asenal.git"
-  },
-  "scripts": {
-    "test": "node index.test.js",
-    "docs": "node ../../scripts/jsdocs.js net",
-    "pub": "node ../../scripts/publish.js net"
-  },
-  "author": "ostwindli<9837438@qq.com>",
-  "license": "MIT",
-  "dependencies": {
-    "default-gateway": "^6.0.3",
-    "ipaddr.js": "^2.0.1",
-    "umi-request": "^1.4.0"
-  }
+    "name": "@licq/net",
+    "version": "1.0.0",
+    "description": "封装一些关于网络的方法",
+    "main": "index.js",
+    "keywords": [
+        "nodejs",
+        "ostwindli",
+        "ostwind",
+        "net"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ostwindli/asenal.git"
+    },
+    "scripts": {
+        "test": "node index.test.js",
+        "docs": "node ../../scripts/jsdocs.js net",
+        "pub": "node ../../scripts/publish.js net"
+    },
+    "author": "ostwindli<9837438@qq.com>",
+    "license": "MIT",
+    "dependencies": {
+        "default-gateway": "^6.0.3",
+        "ipaddr.js": "^2.0.1",
+        "umi-request": "^1.4.0"
+    }
 }
