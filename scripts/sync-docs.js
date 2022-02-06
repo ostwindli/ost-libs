@@ -48,4 +48,6 @@ async function deploy() {
 
   const distPath = path.join(destDocsPath, ".vuepress/dist");
   await OstTools.uploadCVM("asenal_path", distPath);
+
+  console.log(`https://asenal.lcq.show/\n`)
 }
