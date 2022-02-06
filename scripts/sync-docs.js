@@ -1,8 +1,8 @@
 const path = require("path");
 const fs = require("fs");
-const chalk = require("chalk");
-const scp2 = require("scp2");
-const Config = require("./config.json");
+// const chalk = require("chalk");
+// const scp2 = require("scp2");
+// const Config = require("./config.json");
 
 const destDocsPath = path.join(__dirname, "../docs");
 
@@ -43,11 +43,9 @@ function sync() {
   });
 }
 
-function deploy() {
-  console.log(chalk.green(`上传云服务器 start \n`));
+async function deploy() {
+  const OstTools = require("../../ost-scripts/scripts/tools.js");
+
   const distPath = path.join(destDocsPath, ".vuepress/dist");
-  scp2.scp(distPath, Config.cvm, function (err) {
-    if (err) log(`异常：${err}`);
-    console.log(chalk.green(`上传云服务器 end \n`));
-  });
+  await OstTools.uploadCVM("asenal_path", distPath);
 }

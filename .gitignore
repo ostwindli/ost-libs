@@ -16,4 +16,6 @@ build
 .temp
 .cache
 
+ost-scripts
+
 config.json
