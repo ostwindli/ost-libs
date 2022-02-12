@@ -1,0 +1,28 @@
+{
+    "name": "@licq/site-cdn",
+    "version": "1.0.0",
+    "description": "主要用于静态站点的静态资源走cdn，比如hexo、vuepress",
+    "main": "index.js",
+    "keywords": [
+        "nodejs",
+        "ostwindli",
+        "ostwind",
+        "site-cdn"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ostwindli/asenal.git"
+    },
+    "scripts": {
+        "test": "node index.test.js",
+        "docs": "node ../../scripts/jsdocs.js site-cdn",
+        "pub": "node ../../scripts/publish.js site-cdn"
+    },
+    "author": "ostwindli<9837438@qq.com>",
+    "license": "MIT",
+    "devDependencies": {},
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.10",
+        "glob": "^7.2.0"
+    }
+}
