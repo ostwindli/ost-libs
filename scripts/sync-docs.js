@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+const siteCdn = require('@licq/site-cdn');
 // const chalk = require("chalk");
 // const scp2 = require("scp2");
 // const Config = require("./config.json");
@@ -47,6 +48,12 @@ async function deploy() {
   const OstTools = require("../../ost-scripts/scripts/tools.js");
 
   const distPath = path.join(destDocsPath, ".vuepress/dist");
+
+  // 补全静态资源cdn
+  siteCdn(distPath, '/asenal', OstTools.config.cos_gtimg.ExtConfig.Domain + "ost")
+
+  await OstTools.uploadCos("cos_gtimg", distPath, "ost/asenal");
+
   await OstTools.uploadCVM("asenal_path", distPath);
 
   console.log(`https://asenal.lcq.show/\n`)
