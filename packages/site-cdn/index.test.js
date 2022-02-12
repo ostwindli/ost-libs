@@ -1,6 +1,15 @@
-const site-cdn = require("./index.js");
+const path = require("path");
+const siteCdn = require("./index.js");
 
 (async function () {
-  const res = site-cdn.helloWorld(1);
-  console.log("\nhelloWorld测试结果", res);
+  // error
+  // siteCdn('test-dist', '/blog/', 'https://demo.cdn.com/')
+
+  // success
+  siteCdn(path.join(__dirname, "test-dist"), "/blog/", "https://demo.cdn.com/");
+
+  // success
+  //siteCdn(path.join(__dirname, 'test-dist'), '/', 'https://demo.cdn.com/')
+
+  console.log("\nsiteCdn 测试结束");
 })();

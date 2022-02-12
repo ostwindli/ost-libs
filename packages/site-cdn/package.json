@@ -1,6 +1,6 @@
 {
     "name": "@licq/site-cdn",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "主要用于静态站点的静态资源走cdn，比如hexo、vuepress",
     "main": "index.js",
     "keywords": [
