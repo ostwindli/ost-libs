@@ -50,7 +50,7 @@ async function deploy() {
   const distPath = path.join(destDocsPath, ".vuepress/dist");
 
   // 补全静态资源cdn
-  siteCdn(distPath, '/asenal', OstTools.config.cos_gtimg.ExtConfig.Domain + "ost")
+  siteCdn(distPath, '/asenal', OstTools.config.ost_cdn)
 
   await OstTools.uploadCos("cos_gtimg", distPath, "ost/asenal");
 
