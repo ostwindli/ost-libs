@@ -42,6 +42,7 @@ function sync() {
       path.join(destPkgPath, "README.md")
     );
   });
+  console.log('\nsync succes\n')
 }
 
 async function deploy() {

@@ -1,57 +1,34 @@
-# Asenal
+# ost-tools
 
-Ostwindli's JavaScript Tools
+Ostwind's JavaScript Tools
 
-## Local Dev
+## Dev
 
-### Init a new package
-
-```js
+```sh
+# init a new tool
 npm run new
-```
 
-### Generate API Docs
-
-exec below shell
-
-```sh
-#eg: npm run docs string
-npm run docs PKG_NAME
-
-```
-
-or
-
-```sh
-cd packages/PKG_NAME
-npm run docs
-```
-
-### Test
-
-```sh
+# test
 cd packages/PKG_NAME
 npm run test
-```
 
-### Publish
-
-```sh
+# publish tool
 npm run pub PKG_NAME
-
-```
-
-or
-
-```sh
+#or
 cd packages/PKG_NAME
 npm run pub
+
+
+# generate a tool doc
+npm run docs [PKG_NAME]
+#or
+cd packages/PKG_NAME
+npm run docs
+
+# deploy docs
+npm run docs:deploy
 ```
 
-### Deploy Docs
+## website
 
-```sh
-npm run docs:sync
-```
-
-[https://asenal.lcq.show](https://asenal.lcq.show)
+[https://lcq.show/asenal](https://lcq.show/asenal)
