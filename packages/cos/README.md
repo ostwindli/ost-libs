@@ -81,6 +81,7 @@ await cos.uploadFiles(__dirname, 'ost/cos/demo');
 
 
 **Returns**: Promise<>  
+**Since**: v2.1.3  
 
 | Param | Type | Description |
 | --- | --- | --- |

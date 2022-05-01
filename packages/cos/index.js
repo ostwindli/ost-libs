@@ -196,6 +196,7 @@ class Cos {
    * 通过文件数据上传
    * @param {String} cosPath cos路径
    * @param {Buffer | String | Stream} fileData 文件数据
+   * @since v2.1.3
    * @returns Promise<>
    */
   async uploadFileByData(cosPath, fileData) {

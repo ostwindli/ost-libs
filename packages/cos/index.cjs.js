@@ -57,7 +57,7 @@ const path = require("path");
  * @param {String} Config.SecretId 必填
  * @param {String} Config.SecretKey 必填
  *
- * @param {Object} Config.CosObjectConfig 参见 https://cloud.tencent.com/document/product/436/64980#.E7.AE.80.E5.8D.95.E4.B8.8A.E4.BC.A0.E5.AF.B9.E8.B1.A1 中的参数说明
+ * @param {Object} Config.CosObjectConfig 参见 <https://cloud.tencent.com/document/product/436/64980#.E7.AE.80.E5.8D.95.E4.B8.8A.E4.BC.A0.E5.AF.B9.E8.B1.A1> 中的参数说明
  * @param {String} Config.CosObjectConfig.Bucket 必填
  * @param {String} Config.CosObjectConfig.Region 必填
  * @param {String} Config.CosObjectConfig.ACL 可选 默认：'public-read'
@@ -80,9 +80,9 @@ const path = require("path");
  *       Domain: 'https://demos.gtimg.cn/',
  *    }
  * });
- * //localPath 本地文件/目录的绝对路径
- * //cosPath   cos的path
+ * 
  * await cos.uploadFiles(__dirname, 'ost/cos/demo');
+ * 
  */
 
 
@@ -174,8 +174,13 @@ class Cos {
       Key,
       FilePath
     });
-  } //localPath 本地文件/目录的绝对路径
-  //cosPath   cos的path
+  }
+  /**
+   * 批量上传
+   * @param {String} localPath 本地文件/目录的绝对路径
+   * @param {String} cosPath cos的path
+   * @returns Promise
+   */
 
 
   async uploadFiles(localPath, cosPath) {
@@ -226,6 +231,31 @@ class Cos {
       });
     }); // return new Promise((resolve, reject) => {
     // });
+  }
+  /**
+   * 通过文件数据上传
+   * @param {String} cosPath cos路径
+   * @param {Buffer | String | Stream} fileData 文件数据
+   * @since v2.1.3
+   * @returns Promise<>
+   */
+
+
+  async uploadFileByData(cosPath, fileData) {
+    return new Promise((resolve, reject) => {
+      this.cos.putObject(_objectSpread2(_objectSpread2({}, this.defaultParams.CosObjectConfig), {}, {
+        Key: cosPath,
+        Body: fileData
+      }), (err, data) => {
+        if (err) {
+          console.error("\n@licq上传文件失败：", err);
+          reject(err);
+        } else {
+          console.error("\n@licq上传文件成功：", data.Location);
+          resolve(data);
+        }
+      });
+    });
   }
 
 }
