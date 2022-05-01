@@ -57,5 +57,5 @@ async function deploy() {
 
   await OstTools.uploadCVM("asenal_path", distPath);
 
-  console.log(`https://asenal.lcq.show/\n`)
+  console.log(`https://lcq.show/asenal/\n`)
 }
