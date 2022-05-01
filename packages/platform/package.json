@@ -1,0 +1,24 @@
+{
+    "name": "@licq/platform",
+    "version": "1.0.0",
+    "description": "获取关于平台的相关信息",
+    "main": "index.js",
+    "keywords": [
+        "nodejs",
+        "ostwindli",
+        "ostwind",
+        "platform"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ostwindli/asenal.git"
+    },
+    "scripts": {
+        "test": "node index.test.js",
+        "docs": "node ../../scripts/jsdocs.js platform",
+        "pub": "node ../../scripts/publish.js platform"
+    },
+    "author": "ostwindli<9837438@qq.com>",
+    "license": "MIT",
+    "devDependencies": {}
+}
