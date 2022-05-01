@@ -34,9 +34,9 @@ const path = require("path");
  *       Domain: 'https://demos.gtimg.cn/',
  *    }
  * });
- * //localPath 本地文件/目录的绝对路径
- * //cosPath   cos的path
+ * 
  * await cos.uploadFiles(__dirname, 'ost/cos/demo');
+ * 
  */
 class Cos {
   constructor(params) {
@@ -131,8 +131,12 @@ class Cos {
     };
   }
 
-  //localPath 本地文件/目录的绝对路径
-  //cosPath   cos的path
+  /**
+   * 批量上传
+   * @param {String} localPath 本地文件/目录的绝对路径
+   * @param {String} cosPath cos的path
+   * @returns Promise
+   */
   async uploadFiles(localPath, cosPath) {
     if (!localPath || !cosPath) {
       throw new Error(`缺少参数 localPath 或 cosPath`);
@@ -186,6 +190,33 @@ class Cos {
     // return new Promise((resolve, reject) => {
 
     // });
+  }
+
+  /**
+   * 通过文件数据上传
+   * @param {String} cosPath cos路径
+   * @param {Buffer | String | Stream} fileData 文件数据
+   * @returns Promise<>
+   */
+  async uploadFileByData(cosPath, fileData) {
+    return new Promise((resolve, reject) => {
+      this.cos.putObject(
+        {
+          ...this.defaultParams.CosObjectConfig,
+          Key: cosPath,
+          Body: fileData,
+        },
+        (err, data) => {
+          if (err) {
+            console.error("\n@licq上传文件失败：", err);
+            reject(err);
+          } else {
+            console.error("\n@licq上传文件成功：", data.Location);
+            resolve(data);
+          }
+        }
+      );
+    });
   }
 }
 
