@@ -1,0 +1,41 @@
+{
+  "name": "@licq/dl",
+  "version": "1.0.0",
+  "description": "文件下载",
+  "main": "index.js",
+  "bin": {
+    "dl": "bin.js"
+  },
+  "keywords": [
+    "nodejs",
+    "ostwindli",
+    "ostwind",
+    "download",
+    "dl"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ostwindli/asenal.git"
+  },
+  "scripts": {
+    "test": "node index.test.js",
+    "docs": "node ../../scripts/jsdocs.js dl",
+    "pub": "node ../../scripts/publish.js dl"
+  },
+  "author": "ostwindli<9837438@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^4.3.4",
+    "minimist": "^1.2.6",
+    "pretty-bytes": "^5.6.0",
+    "progress-stream": "^2.0.0",
+    "request": "^2.88.2",
+    "single-line-log": "^1.1.2",
+    "throttleit": "^1.0.0"
+  },
+  "devDependencies": {
+    "standard": "^6.0.5",
+    "tape": "^4.15.1",
+    "tape-spawn": "^1.4.2"
+  }
+}

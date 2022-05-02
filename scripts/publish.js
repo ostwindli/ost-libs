@@ -37,14 +37,22 @@ console.log(`\n新版本：`, pkg.version);
 
 fs.writeFileSync(pkgJSONPath, JSON.stringify(pkg, null, 4));
 
-cp.execSync(
-  `cd ${getPkgsBasePath(pkgName)}
-  npm run docs
-  npm run test
-  npm publish --access=public --registry=https://registry.npmjs.org/
-  git add .
-  git commit -m 'release(@licq/${pkgName}): 发布 v${pkg.version}'
-  `
-);
 
-console.log("\n发布成功：", `https://www.npmjs.com/package/@licq/${pkgName}\n`);
+cp.exec(
+  `cd ${getPkgsBasePath(pkgName)}
+${!["dl"].includes(pkgName) ? "npm run docs && npm run test" : ""}
+npm publish --access=public --registry=https://registry.npmjs.org/
+`,
+  (error, stdout, stderr) => {
+    if (error) {
+      console.log("\n----发布失败：\n", error.message);
+    } else {
+      cp.execSync(`git add .
+      git commit -m 'release(@licq/${pkgName}): 发布 v${pkg.version}'`);
+      console.log(
+        "\n发布成功：",
+        `https://www.npmjs.com/package/@licq/${pkgName}\n`
+      );
+    }
+  }
+);
