@@ -17,7 +17,7 @@ if (isDeploy === "deploy") {
 }
 
 function sync() {
-  const pkgs = fs.readdirSync(targetPath).filter(pkg => !pkg.startsWith('_'));
+  const pkgs = fs.readdirSync(targetPath).filter(pkg => fs.statSync(path.join(targetPath, pkg)).isDirectory() && !pkg.startsWith('_'));
 
   console.log(pkgs);
 
