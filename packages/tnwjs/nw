@@ -1,0 +1,71 @@
+#!/usr/bin/env node
+const { Command } = require('commander');
+const program = new Command();
+const update = require('update-notifier')
+const pkg = require('./package')
+
+
+const install = require('./lib/install')
+const run = require('./lib/run')
+const use = require('./lib/use')
+const list = require('./lib/list')
+const listRemote = require('./lib/list-remote')
+const remove = require('./lib/remove')
+const current = require('./lib/current')
+
+
+update({pkg}).notify()
+
+program
+  .name('tnw')
+  .description('CLI to manage nwjs versions')
+  .version(pkg.version);
+
+program
+  .command('*')
+  .description('Run tnwjs in a directory')
+  .action(run)
+
+program
+  .command('install <version>')
+  .description('Install a nwjs version')
+  .alias('i')
+  .action(install)
+
+program
+  .command('use <version>')
+  .description('Set an active nwjs version')
+  .alias('u')
+  .action(use)
+
+program
+  .command('list')
+  .description('List local cached nwjs versions')
+  .alias('ls')
+  .action(list)
+
+program
+  .command('list-remote')
+  .description('List all available nwjs versions from remote')
+  .alias('ls-remote')
+  .action(listRemote)
+
+program
+  .command('remove <version>')
+  .description('Remove a specific version of nwjs')
+  .alias('r')
+  .action(remove)
+
+program
+  .command('current')
+  .description('Show the nw version currently in use')
+  .alias('c')
+  .action(current)
+
+const inst = program.parse(process.argv)
+
+//console.log('-----------------', inst && inst.args[0])
+
+if(!inst || !inst.args || !inst.args.length) {
+  program.outputHelp()
+}

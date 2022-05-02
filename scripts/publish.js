@@ -40,7 +40,7 @@ fs.writeFileSync(pkgJSONPath, JSON.stringify(pkg, null, 4));
 
 cp.exec(
   `cd ${getPkgsBasePath(pkgName)}
-${!["dl"].includes(pkgName) ? "npm run docs && npm run test" : ""}
+${!["dl", "tnwjs"].includes(pkgName) ? "npm run docs && npm run test" : ""}
 npm publish --access=public --registry=https://registry.npmjs.org/
 `,
   (error, stdout, stderr) => {
