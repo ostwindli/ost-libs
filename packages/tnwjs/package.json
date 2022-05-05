@@ -1,6 +1,6 @@
 {
     "name": "@licq/tnwjs",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "nwjs的包管理器",
     "main": "index.js",
     "bin": {
@@ -35,7 +35,7 @@
         "@licq/dl": "^1.0.2",
         "aimer": "^1.3.0",
         "chalk": "^4.1.2",
-        "commander": "^9.2.0",
+        "commander": "2.20.1",
         "configstore": "^5.0.1",
         "extract-zip": "^2.0.1",
         "figures": "^3.2.0",

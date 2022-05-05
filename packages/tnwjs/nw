@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-const { Command } = require('commander');
-const program = new Command();
+const program = require('commander')
+
 const update = require('update-notifier')
 const pkg = require('./package')
 
@@ -17,9 +17,7 @@ const current = require('./lib/current')
 update({pkg}).notify()
 
 program
-  .name('tnw')
-  .description('CLI to manage nwjs versions')
-  .version(pkg.version);
+  .version(pkg.version, '-v --version');
 
 program
   .command('*')
