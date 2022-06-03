@@ -1,0 +1,29 @@
+{
+    "name": "@licq/log",
+    "version": "1.0.1",
+    "description": "写本地日志",
+    "main": "index.js",
+    "keywords": [
+        "nodejs",
+        "ostwindli",
+        "ostwind",
+        "log"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ostwindli/asenal.git"
+    },
+    "scripts": {
+        "test": "node index.test.js",
+        "docs": "node ../../scripts/jsdocs.js log",
+        "pub": "node ../../scripts/publish.js log"
+    },
+    "author": "ostwindli<9837438@qq.com>",
+    "license": "MIT",
+    "devDependencies": {},
+    "dependencies": {
+        "@licq/date": "^1.0.5",
+        "fs-extra": "^10.1.0",
+        "open": "^8.4.0"
+    }
+}
