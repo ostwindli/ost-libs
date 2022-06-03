@@ -81,7 +81,7 @@ function error(...msg) {
 }
 
 /**
- * 打开日志目录、降级则是临时目录 path.join(os.tmpdir(), `lcq/log`)
+ * 打开日志目录( `path.join(os.tmpdir(), 'lcq/log')` )、降级则是打开临时目录
  * @name openLogDir
  * @since v1.0.0
  * @returns null
@@ -98,7 +98,7 @@ function openLogDir() {
 }
 
 /**
- * 清空日志目录 path.join(os.tmpdir(), `lcq/log`)
+ * 清空日志目录 `path.join(os.tmpdir(), 'lcq/log')`
  * @name cleanLogDir
  * @since v1.0.0
  * @returns null
