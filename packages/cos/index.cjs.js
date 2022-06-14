@@ -155,7 +155,7 @@ class Cos {
 
     if (fs.statSync(localPath).isFile()) {
       // 支持单个文件上传
-      const Key = path.join(cosPath, path.basename(localPath));
+      const Key = (cosPath + '/' + path.basename(localPath)).replace(/\/+/g, '/');
       let files = this.assemblyFile(Key, localPath);
       return [files];
     } else {
