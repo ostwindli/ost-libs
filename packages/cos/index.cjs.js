@@ -162,8 +162,8 @@ class Cos {
       let files = await fileUtils.listFiles(localPath); // 组装files的cos数组
 
       files = files.filter(file => !file.isDir).map(file => {
-        const filename = path.relative(localPath, file.path).replace(/\\/g, "/");
-        return this.assemblyFile(path.join(cosPath, filename), file.path);
+        const Key = (cosPath + '/' + path.relative(localPath, file.path)).replace(/\/+/g, "/");
+        return this.assemblyFile(Key, file.path);
       });
       return files;
     }
